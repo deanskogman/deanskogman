@@ -39,7 +39,8 @@ steps:
     deployToSlotOrASE: true
     resourceGroupName: 'myapp-rg'
     slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    #package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$$(Pipeline.Workspace)/**/*.zip'
     deploymentMethod: 'auto'
     
     
