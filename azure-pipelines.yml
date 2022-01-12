@@ -30,9 +30,6 @@ steps:
     targetPath: '$(Pipeline.Workspace)'
     artifactName: 'myWebsiteName'
     
-- task: PublishPipelineArtifact@1
-  inputs:
-    artifact: 'myWebsiteName'
 
 - task: AzureWebApp@1
   inputs:
