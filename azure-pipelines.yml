@@ -29,3 +29,10 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'myWebsiteName'
     
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(b593637d-9181-4b61-8f8b-a6d129910490)'
+    appType: 'webApp'
+    appName: 'myapppipeline-rg'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
