@@ -26,9 +26,14 @@ steps:
 # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)' 
+#    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    targetPath: '$(Pipeline.Workspace)'
     artifactName: 'myWebsiteName'
     
+- task: PublishPipelineArtifact@1
+  inputs:
+    artifact: 'myWebsiteName'
+
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Azure subscription 1(b593637d-9181-4b61-8f8b-a6d129910490)'
@@ -39,3 +44,5 @@ steps:
     slotName: 'production'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
+    
+    
