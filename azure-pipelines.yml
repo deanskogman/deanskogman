@@ -32,7 +32,10 @@ steps:
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Azure subscription 1(b593637d-9181-4b61-8f8b-a6d129910490)'
-    appType: 'webAppLinux'
+    appType: 'webApp'
     appName: 'myapppipeline-rg'
+    deployToSlotOrASE: true
+    resourceGroupName: 'myapp-rg'
+    slotName: 'production'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
